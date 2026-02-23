@@ -1,17 +1,6 @@
-import { jobs } from "./jobs.js";
-import { createJobCard } from "./jobCard.js";
-import { updateDashboard } from "./dashboard.js";
+import { renderJobs } from "./renderJobs.js";
+import { switchTab } from "./tabs.js";
 
-const container = document.getElementById("jobs-container");
+window.switchTab = switchTab;
 
-function showBoxes() {
-    container.innerHTML = ""; 
-    
-    jobs.forEach(job => {
-        const card = createJobCard(job);
-        container.appendChild(card);
-    });
-}
-
-updateDashboard();
-showBoxes();
+renderJobs();

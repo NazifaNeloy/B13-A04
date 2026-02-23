@@ -9,8 +9,6 @@ body {
     transition: all 0.3s ease;
     overflow: hidden;
     border: 1px solid #1f2937;
-    border-left-width: 5px;
-    border-left-color: transparent;
 }
 
 .card-custom:hover {
