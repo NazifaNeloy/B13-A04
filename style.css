@@ -24,7 +24,7 @@ body {
     top: 0;
     bottom: 0;
     width: 5px;
-    border-left-color: #10B981 ;
+    background-color: #10B981 ;
 }
 
 .status-accent-rejected::before  {
@@ -34,5 +34,5 @@ body {
     top: 0;
     bottom: 0;
     width: 5px;
-    border-left-color: #EF4444;
+    background-color: #EF4444;
 }
