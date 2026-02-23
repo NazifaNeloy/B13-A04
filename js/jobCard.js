@@ -85,7 +85,7 @@ export function createJobCard(job) {
     </div>
   `;
 
-  /* clickable buttons  */
+  /* clickable buttons */
   card
     .querySelector(".btn-interview")
     .addEventListener("click", () =>

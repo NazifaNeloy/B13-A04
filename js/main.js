@@ -1,5 +1,6 @@
 import { jobs } from "./jobs.js";
 import { createJobCard } from "./jobCard.js";
+import { updateDashboard } from "./dashboard.js";
 
 const container = document.getElementById("jobs-container");
 
@@ -12,4 +13,5 @@ function showBoxes() {
     });
 }
 
+updateDashboard();
 showBoxes();
