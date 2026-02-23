@@ -40,7 +40,7 @@ let newDiv = document.createElement("div");
 newDiv.innerText = "Hello World";
 
 document.body.appendChild(newDiv);
-
+```
 ---
 
 ### 3. What is Event Bubbling? And how does it work?

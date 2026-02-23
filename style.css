@@ -19,10 +19,22 @@ body {
 }
 
 
-.status-accent-interview {
-    border-left-color: #10B981 !important;
+.status-accent-interview::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-left-color: #10B981 ;
 }
 
-.status-accent-rejected {
-    border-left-color: #EF4444 !important;
+.status-accent-rejected::before  {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    border-left-color: #EF4444;
 }
