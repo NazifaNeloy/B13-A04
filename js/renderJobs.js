@@ -15,7 +15,7 @@ export function renderJobs() {
 
   container.innerHTML = "";
 
-  const filteredJobs = jobs.filter((job) => {
+  const filteredJobs = jobs.filter(job => {
     if (currentTab === "all") return true;
     return job.status === currentTab;
   });
@@ -25,15 +25,13 @@ export function renderJobs() {
   if (filteredJobs.length === 0) {
     emptyState.classList.remove("hidden");
     container.classList.add("hidden");
-    return;
   }
-
+else {
   emptyState.classList.add("hidden");
   container.classList.remove("hidden");
-
-  filteredJobs.forEach((job) => {
+filteredJobs.forEach((job) => {
     container.appendChild(createJobCard(job));
   });
-
+}
   updateDashboard();
 }

@@ -2,37 +2,40 @@ import { updateStatus, deleteJob } from "./jobActions.js";
 
 export function createJobCard(job) {
 
-  const statusConfig = {
-    interview: {
-      accent: "status-accent-interview",
-      badgeClass:
-        "bg-green-500/10 text-green-500 border border-green-500/20",
-      badgeText: "Interview"
-    },
-    rejected: {
-      accent: "status-accent-rejected",
-      badgeClass:
-        "bg-red-500/10 text-red-500 border border-red-500/20",
-      badgeText: "Rejected"
-    },
-    default: {
-      accent: "",
-      badgeClass:
-        "bg-gray-700 text-gray-300 border border-gray-600",
-      badgeText: "Not Applied"
+let accentClass = "";
+    if (job.status === "interview") accentClass = "status-accent-interview";
+    if (job.status === "rejected") accentClass = "status-accent-rejected";
+
+    let badgeHTML = "";
+
+    if (job.status === "interview") {
+
+        badgeHTML = `
+        <div class="mb-4">
+            <span class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider 
+            bg-green-500/10 text-green-500 border border-green-500/20">
+            Interview
+            </span>
+        </div>`;
+    } 
+    else if (job.status === "rejected") {
+        badgeHTML = `
+        <div class="mb-4">
+            <span class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider 
+            bg-red-500/10 text-red-500 border border-red-500/20">
+            Rejected
+            </span>
+        </div>`;
+    } 
+    else {
+        badgeHTML = `
+        <div class="mb-4">
+            <span class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider 
+            bg-gray-700 text-gray-300 border border-gray-600">
+            Not Applied
+            </span>
+        </div>`;
     }
-  };
-
-  const currentStatus = statusConfig[job.status] || statusConfig.default;
-
-  const badgeHTML = `
-    <div class="mb-4">
-      <span class="px-3 py-1 rounded text-xs font-bold uppercase tracking-wider ${currentStatus.badgeClass}">
-        ${currentStatus.badgeText}
-      </span>
-    </div>
-  `;
-
   /* Buttons */
   const btnBase =
     "px-4 py-2 rounded text-sm font-bold border transition-all duration-200 uppercase tracking-wider";
@@ -50,7 +53,8 @@ export function createJobCard(job) {
 
   /* Card Element */
   const card = document.createElement("div");
-  card.className = `card-custom bg-[#1A1D23] p-6 rounded-xl relative ${currentStatus.accent}`;
+  
+  card.className = `card-custom bg-[#1A1D23] p-6 rounded-xl relative ${accentClass}`;
 
   card.innerHTML = `
     <div class="flex justify-between items-start">
